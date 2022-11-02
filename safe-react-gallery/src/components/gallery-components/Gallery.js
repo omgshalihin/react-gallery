@@ -1,6 +1,6 @@
 import React from 'react';
-import Images from './galleryComponents/Images';
-import Searchbar from './galleryComponents/Searchbar';
+import Images from './Images';
+import Searchbar from './SearchBar';
 
 const Gallery = () => (
   <div>

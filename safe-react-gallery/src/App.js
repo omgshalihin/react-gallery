@@ -1,13 +1,14 @@
 import './App.css';
 
 import React from 'react';
-import Navbar from './components/Navbar';
-import Gallery from './components/Gallery';
-import Footer from './components/Footer';
+
+import NavBar from './components/navbar-components/NavBar';
+import Gallery from './components/gallery-components/Gallery';
+import Footer from './components/footer-components/Footer';
 
 const App = () => (
   <div>
-    <Navbar />
+    <NavBar />
     <Gallery />
     <Footer />
   </div>

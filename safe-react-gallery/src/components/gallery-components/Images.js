@@ -1,12 +1,10 @@
 import React, { useContext } from 'react';
-import './images.css';
+import './Images.css';
 // eslint-disable-next-line import/no-cycle
-import { ImagesContext } from './Searchbar';
+import { ImagesContext } from './SearchBar';
 
 const Images = () => {
   const images = useContext(ImagesContext);
-  console.log(images);
-
   return (
     <div className="gallery">
       {images.map((val, index) => (
