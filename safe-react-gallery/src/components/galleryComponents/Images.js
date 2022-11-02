@@ -1,18 +1,24 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './images.css';
+// eslint-disable-next-line import/no-cycle
+import { ImagesContext } from './Searchbar';
 
-const Images = () => (
-  <div className="gallery">
-    <img className="images" src="https://picsum.photos/seed/picsum/300/200" alt="Name2" />
-    <img className="images" src="https://picsum.photos/seed/picsum/300/200" alt="Name3" />
-    <img className="images" src="https://picsum.photos/seed/picsum/300/200" alt="Name4" />
-    <img className="images" src="https://picsum.photos/seed/picsum/300/200" alt="Name5" />
-    <img className="images" src="https://picsum.photos/seed/picsum/300/200" alt="Name6" />
-    <img className="images" src="https://picsum.photos/seed/picsum/300/200" alt="Name7" />
-    <img className="images" src="https://picsum.photos/seed/picsum/300/200" alt="Name8" />
-    <img className="images" src="https://picsum.photos/seed/picsum/300/200" alt="Name9" />
-    <img className="images" src="https://picsum.photos/seed/picsum/300/200" alt="Name10" />
-  </div>
-);
+const Images = () => {
+  const images = useContext(ImagesContext);
+  console.log(images);
+
+  return (
+    <div className="gallery">
+      {images.map(val => (
+        <>
+          <img
+            className="images"
+            src={val.urls.small}
+            alt="val.alt_description" />
+        </>
+      ))}
+    </div>
+  );
+};
 
 export default Images;
