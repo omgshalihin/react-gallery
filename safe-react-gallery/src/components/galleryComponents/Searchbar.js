@@ -2,14 +2,18 @@ import React, { useState, useEffect, createContext } from 'react';
 import './searchBar.css';
 // eslint-disable-next-line import/no-cycle
 import Images from './Images';
+import Pagination from './Pagination';
 
 export const ImagesContext = createContext([]);
 
 const Searchbar = () => {
-  const [img, setImg] = useState('cats');
+  const [img, setImg] = useState('random');
   const [res, setRes] = useState([]);
+  const [page, setPage] = useState(1);
+  console.log(`see here: ${page}`);
   const clientId = 'tVZ5XSggCGfp4quPNGW_BIEULp4AV06QDPbnVUKT3Xc';
-  const url = `https://api.unsplash.com/search/photos?query=${img}&per_page=1&client_id=${clientId}`;
+  const orientation = 'squarish';
+  const url = `https://api.unsplash.com/search/photos?page=${page}&query=${img}&orientation=${orientation}&per_page=2&client_id=${clientId}`;
 
   const fetchRequest = async () => {
     const result = await fetch(url)
@@ -20,11 +24,11 @@ const Searchbar = () => {
 
   useEffect(() => {
     fetchRequest();
-  }, []);
+  }, [page]);
 
   const Submit = () => {
     fetchRequest();
-    setImg('');
+    setImg(img);
   };
   return (
     <div>
@@ -38,6 +42,7 @@ const Searchbar = () => {
       <ImagesContext.Provider value={res}>
         <Images />
       </ImagesContext.Provider>
+      <Pagination page={page} setPage={setPage} />
     </div>
   );
 };

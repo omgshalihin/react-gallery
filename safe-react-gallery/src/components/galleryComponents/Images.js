@@ -9,13 +9,14 @@ const Images = () => {
 
   return (
     <div className="gallery">
-      {images.map(val => (
-        <>
+      {images.map((val, index) => (
+        // eslint-disable-next-line react/no-array-index-key
+        <div key={index}>
           <img
             className="images"
             src={val.urls.small}
             alt="val.alt_description" />
-        </>
+        </div>
       ))}
     </div>
   );
