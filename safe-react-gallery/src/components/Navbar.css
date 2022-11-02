@@ -1,0 +1,12 @@
+.navbar {
+  display: flex;
+  background-color: rgb(249 249 249);
+  align-items: center;
+  justify-content: center;
+  position: sticky;
+  top: 0;
+}
+.logo {
+  width: auto;
+  height: 50px;
+}
